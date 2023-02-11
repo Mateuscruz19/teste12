@@ -2,8 +2,7 @@ import { customerSchemma } from "../models/Customers.js";
 import { connectionDB } from "../database/db.js";
 
 export async function validSchemaCustomer(req, res, next) {
-  const {name,phone,cpfOne,birthday} = req.body;
-  const cpfTwo = cpfOne
+  const customer = req.body;
 
   const { error } = customerSchemma.validate(customer, { abortEarly: false });
 

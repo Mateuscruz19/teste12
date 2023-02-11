@@ -3,6 +3,7 @@ import { connectionDB } from "../database/db.js";
 export async function create(req, res) {
   const { name, phone, cpf, birthday } = res.locals.customer;
 
+  
   try {
     await connectionDB.query(
       "INSERT INTO customers (name, phone, cpf, birthday) VALUES ($1, $2, $3, $4)",
