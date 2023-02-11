@@ -11,7 +11,7 @@ export async function create(req, res) {
 
     res.sendStatus(201);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(400).send(err.message);
   }
 }
 export async function findAll(req, res) {
@@ -30,7 +30,7 @@ export async function findAll(req, res) {
     customers = await connectionDB.query(`SELECT * FROM customers`);
     res.send(customers.rows);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(400).send(err.message);
   }
 }
 
@@ -48,7 +48,7 @@ export async function findById(req, res) {
 
     res.send(rows[0]);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(400).send(err.message);
   }
 }
 export async function update(req, res) {
@@ -63,6 +63,6 @@ export async function update(req, res) {
 
     res.sendStatus(200);
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(400).send(err.message);
   }
 }
