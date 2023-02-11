@@ -1,8 +1,8 @@
-import joi from "joi";
+import Joi from "joi";
 
-export const customerSchemma = joi.object({
-  name: joi.string().min(2).required(),
-  phone: joi.string().max(11).required(),
-  cpf: joi.string().min(11).max(11).required().regex(/^\d+$/),
-  birthday: joi.required(),
+export const customerSchemma = Joi.object({
+  name: Joi.string().required(),
+  cpf: Joi.string().pattern(/^\d+$/).min(11).max(11).required(),
+  phone: Joi.string().pattern(/^\d+$/).max(11).min(10).required(),
+  birthday: Joi.date().required(),
 });
